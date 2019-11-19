@@ -1,0 +1,45 @@
+﻿@model Falabella.Models.ViewModels.Venta.VentaViewModels
+@{
+    ViewBag.Title = "Nuevo";
+    List<SelectListItem> items = (List<SelectListItem>)ViewBag.items;
+    List<SelectListItem> itemsC = (List<SelectListItem>)ViewBag.items;
+}
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Nuevo", "Venta", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                @Html.LabelFor(d => d.idCliente)
+                @Html.DropDownList("idCliente", items, "Selecciona...", new { @class = "form-control" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.idCompania)
+                @Html.DropDownList("idCompania", itemsC, "Selecciona...", new { @class = "form-control" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.idProducto)
+                @Html.DropDownList("idProducto", itemsC, "Selecciona...", new { @class = "form-control" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.cantidad)
+                @Html.TextBoxFor(d => d.cantidad, "", new { @class = "form-control" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.valor)
+                @Html.TextBoxFor(d => d.valor, "", new { @class = "form-control" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.observacion)
+                @Html.TextArea("observacion", new { @class = "form-control" })
+            </div>
+            <br>
+            <div class="row" style="text-align:right;">
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+    </div>
+}
+
+

@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FalabellaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Fal_Dic_Cliente">
+    <Key>
+      <PropertyRef Name="cli_IdCliente_PK" />
+    </Key>
+    <Property Name="cli_IdCliente_PK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cli_IdUsuario_FK" Type="Int32" Nullable="false" />
+    <Property Name="cli_IdTipoDocumento_FK" Type="Int32" Nullable="false" />
+    <Property Name="cli_Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cli_Documento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cli_FechaNacimiento" Type="DateTime" Precision="3" />
+    <Property Name="cli_FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Fal_Dic_TipoDocumento" Relationship="Self.FK_Fal_Dic_Cliente_Fal_Dic_TipoDocumento" FromRole="Fal_Dic_Cliente" ToRole="Fal_Dic_TipoDocumento" />
+    <NavigationProperty Name="Fal_Dic_Usuario" Relationship="Self.FK_Fal_Dic_Cliente_Fal_Dic_Usuario" FromRole="Fal_Dic_Cliente" ToRole="Fal_Dic_Usuario" />
+    <NavigationProperty Name="Fal_Tra_Venta" Relationship="Self.FK_Fal_Tra_Venta_Fal_Dic_Cliente" FromRole="Fal_Dic_Cliente" ToRole="Fal_Tra_Venta" />
+  </EntityType>
+  <EntityType Name="Fal_Dic_Compania">
+    <Key>
+      <PropertyRef Name="com_IdCompania_PK" />
+    </Key>
+    <Property Name="com_IdCompania_PK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="com_IdUsuario_FK" Type="Int32" Nullable="false" />
+    <Property Name="com_Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="com_PersonaContacto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="com_TelefonoContacto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="com_Nit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="com_FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Fal_Dic_Usuario" Relationship="Self.FK_Fal_Dic_Compania_Fal_Dic_Usuario" FromRole="Fal_Dic_Compania" ToRole="Fal_Dic_Usuario" />
+    <NavigationProperty Name="Fal_Tra_CompaniaProducto" Relationship="Self.FK_Fal_Tra_CompaniaProducto_Fal_Dic_Compania" FromRole="Fal_Dic_Compania" ToRole="Fal_Tra_CompaniaProducto" />
+  </EntityType>
+  <EntityType Name="Fal_Dic_Producto">
+    <Key>
+      <PropertyRef Name="prd_IdProducto_PK" />
+    </Key>
+    <Property Name="prd_IdProducto_PK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="prd_IdUsuario_FK" Type="Int32" Nullable="false" />
+    <Property Name="prd_Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="prd_EstadoProducto" Type="Boolean" Nullable="false" />
+    <Property Name="prd_FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Fal_Dic_Usuario" Relationship="Self.FK_Fal_Dic_Producto_Fal_Dic_Usuario" FromRole="Fal_Dic_Producto" ToRole="Fal_Dic_Usuario" />
+    <NavigationProperty Name="Fal_Tra_CompaniaProducto" Relationship="Self.FK_Fal_Tra_CompaniaProducto_Fal_Dic_Producto" FromRole="Fal_Dic_Producto" ToRole="Fal_Tra_CompaniaProducto" />
+  </EntityType>
+  <EntityType Name="Fal_Dic_TipoDocumento">
+    <Key>
+      <PropertyRef Name="tid_IdTipoDocumento_PK" />
+    </Key>
+    <Property Name="tid_IdTipoDocumento_PK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tid_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Fal_Dic_Cliente" Relationship="Self.FK_Fal_Dic_Cliente_Fal_Dic_TipoDocumento" FromRole="Fal_Dic_TipoDocumento" ToRole="Fal_Dic_Cliente" />
+  </EntityType>
+  <EntityType Name="Fal_Dic_Usuario">
+    <Key>
+      <PropertyRef Name="usu_IdUsuario_PK" />
+    </Key>
+    <Property Name="usu_IdUsuario_PK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usu_IdPerfil_FK" Type="Int32" Nullable="false" />
+    <Property Name="usu_Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usu_Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usu_FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Fal_Dic_Cliente" Relationship="Self.FK_Fal_Dic_Cliente_Fal_Dic_Usuario" FromRole="Fal_Dic_Usuario" ToRole="Fal_Dic_Cliente" />
+    <NavigationProperty Name="Fal_Dic_Compania" Relationship="Self.FK_Fal_Dic_Compania_Fal_Dic_Usuario" FromRole="Fal_Dic_Usuario" ToRole="Fal_Dic_Compania" />
+    <NavigationProperty Name="Fal_Dic_Producto" Relationship="Self.FK_Fal_Dic_Producto_Fal_Dic_Usuario" FromRole="Fal_Dic_Usuario" ToRole="Fal_Dic_Producto" />
+    <NavigationProperty Name="Fal_DicPerfil" Relationship="Self.FK_Fal_Dic_Usuario_Fal_DicPerfil" FromRole="Fal_Dic_Usuario" ToRole="Fal_DicPerfil" />
+    <NavigationProperty Name="Fal_Tra_CompaniaProducto" Relationship="Self.FK_Fal_Tra_CompaniaProducto_Fal_Dic_Usuario" FromRole="Fal_Dic_Usuario" ToRole="Fal_Tra_CompaniaProducto" />
+    <NavigationProperty Name="Fal_Tra_Venta" Relationship="Self.FK_Fal_Tra_Venta_Fal_Dic_Usuario" FromRole="Fal_Dic_Usuario" ToRole="Fal_Tra_Venta" />
+  </EntityType>
+  <EntityType Name="Fal_DicPerfil">
+    <Key>
+      <PropertyRef Name="per_IdPerfil_PK" />
+    </Key>
+    <Property Name="per_IdPerfil_PK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="per_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Fal_Dic_Usuario" Relationship="Self.FK_Fal_Dic_Usuario_Fal_DicPerfil" FromRole="Fal_DicPerfil" ToRole="Fal_Dic_Usuario" />
+  </EntityType>
+  <EntityType Name="Fal_Tra_CompaniaProducto">
+    <Key>
+      <PropertyRef Name="cop_IdCompaniaProducto_PK" />
+    </Key>
+    <Property Name="cop_IdCompaniaProducto_PK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cop_IdCompania_FK" Type="Int32" Nullable="false" />
+    <Property Name="cop_IdProducto_FK" Type="Int32" Nullable="false" />
+    <Property Name="cop_IdUsuario_FK" Type="Int32" Nullable="false" />
+    <Property Name="cop_Estado" Type="Boolean" Nullable="false" />
+    <Property Name="cop_FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Fal_Dic_Compania" Relationship="Self.FK_Fal_Tra_CompaniaProducto_Fal_Dic_Compania" FromRole="Fal_Tra_CompaniaProducto" ToRole="Fal_Dic_Compania" />
+    <NavigationProperty Name="Fal_Dic_Producto" Relationship="Self.FK_Fal_Tra_CompaniaProducto_Fal_Dic_Producto" FromRole="Fal_Tra_CompaniaProducto" ToRole="Fal_Dic_Producto" />
+    <NavigationProperty Name="Fal_Dic_Usuario" Relationship="Self.FK_Fal_Tra_CompaniaProducto_Fal_Dic_Usuario" FromRole="Fal_Tra_CompaniaProducto" ToRole="Fal_Dic_Usuario" />
+    <NavigationProperty Name="Fal_Tra_Venta" Relationship="Self.FK_Fal_Tra_Venta_Fal_Tra_CompaniaProducto" FromRole="Fal_Tra_CompaniaProducto" ToRole="Fal_Tra_Venta" />
+  </EntityType>
+  <EntityType Name="Fal_Tra_Venta">
+    <Key>
+      <PropertyRef Name="ven_IdVenta_PK" />
+    </Key>
+    <Property Name="ven_IdVenta_PK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ven_IdCompaniaProducto_FK" Type="Int32" Nullable="false" />
+    <Property Name="ven_IdCliente_FK" Type="Int32" Nullable="false" />
+    <Property Name="ven_IdUsuario_FK" Type="Int32" Nullable="false" />
+    <Property Name="ven_Cantidad" Type="Int32" />
+    <Property Name="ven_Valor" Type="Int32" />
+    <Property Name="ven_Observacion" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ven_FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Fal_Dic_Cliente" Relationship="Self.FK_Fal_Tra_Venta_Fal_Dic_Cliente" FromRole="Fal_Tra_Venta" ToRole="Fal_Dic_Cliente" />
+    <NavigationProperty Name="Fal_Dic_Usuario" Relationship="Self.FK_Fal_Tra_Venta_Fal_Dic_Usuario" FromRole="Fal_Tra_Venta" ToRole="Fal_Dic_Usuario" />
+    <NavigationProperty Name="Fal_Tra_CompaniaProducto" Relationship="Self.FK_Fal_Tra_Venta_Fal_Tra_CompaniaProducto" FromRole="Fal_Tra_Venta" ToRole="Fal_Tra_CompaniaProducto" />
+  </EntityType>
+  <Association Name="FK_Fal_Dic_Cliente_Fal_Dic_TipoDocumento">
+    <End Role="Fal_Dic_TipoDocumento" Type="Self.Fal_Dic_TipoDocumento" Multiplicity="1" />
+    <End Role="Fal_Dic_Cliente" Type="Self.Fal_Dic_Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fal_Dic_TipoDocumento">
+        <PropertyRef Name="tid_IdTipoDocumento_PK" />
+      </Principal>
+      <Dependent Role="Fal_Dic_Cliente">
+        <PropertyRef Name="cli_IdTipoDocumento_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fal_Dic_Cliente_Fal_Dic_Usuario">
+    <End Role="Fal_Dic_Usuario" Type="Self.Fal_Dic_Usuario" Multiplicity="1" />
+    <End Role="Fal_Dic_Cliente" Type="Self.Fal_Dic_Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fal_Dic_Usuario">
+        <PropertyRef Name="usu_IdUsuario_PK" />
+      </Principal>
+      <Dependent Role="Fal_Dic_Cliente">
+        <PropertyRef Name="cli_IdUsuario_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fal_Tra_Venta_Fal_Dic_Cliente">
+    <End Role="Fal_Dic_Cliente" Type="Self.Fal_Dic_Cliente" Multiplicity="1" />
+    <End Role="Fal_Tra_Venta" Type="Self.Fal_Tra_Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fal_Dic_Cliente">
+        <PropertyRef Name="cli_IdCliente_PK" />
+      </Principal>
+      <Dependent Role="Fal_Tra_Venta">
+        <PropertyRef Name="ven_IdCliente_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fal_Dic_Compania_Fal_Dic_Usuario">
+    <End Role="Fal_Dic_Usuario" Type="Self.Fal_Dic_Usuario" Multiplicity="1" />
+    <End Role="Fal_Dic_Compania" Type="Self.Fal_Dic_Compania" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fal_Dic_Usuario">
+        <PropertyRef Name="usu_IdUsuario_PK" />
+      </Principal>
+      <Dependent Role="Fal_Dic_Compania">
+        <PropertyRef Name="com_IdUsuario_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fal_Tra_CompaniaProducto_Fal_Dic_Compania">
+    <End Role="Fal_Dic_Compania" Type="Self.Fal_Dic_Compania" Multiplicity="1" />
+    <End Role="Fal_Tra_CompaniaProducto" Type="Self.Fal_Tra_CompaniaProducto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fal_Dic_Compania">
+        <PropertyRef Name="com_IdCompania_PK" />
+      </Principal>
+      <Dependent Role="Fal_Tra_CompaniaProducto">
+        <PropertyRef Name="cop_IdCompania_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fal_Dic_Producto_Fal_Dic_Usuario">
+    <End Role="Fal_Dic_Usuario" Type="Self.Fal_Dic_Usuario" Multiplicity="1" />
+    <End Role="Fal_Dic_Producto" Type="Self.Fal_Dic_Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fal_Dic_Usuario">
+        <PropertyRef Name="usu_IdUsuario_PK" />
+      </Principal>
+      <Dependent Role="Fal_Dic_Producto">
+        <PropertyRef Name="prd_IdUsuario_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fal_Tra_CompaniaProducto_Fal_Dic_Producto">
+    <End Role="Fal_Dic_Producto" Type="Self.Fal_Dic_Producto" Multiplicity="1" />
+    <End Role="Fal_Tra_CompaniaProducto" Type="Self.Fal_Tra_CompaniaProducto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fal_Dic_Producto">
+        <PropertyRef Name="prd_IdProducto_PK" />
+      </Principal>
+      <Dependent Role="Fal_Tra_CompaniaProducto">
+        <PropertyRef Name="cop_IdProducto_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fal_Dic_Usuario_Fal_DicPerfil">
+    <End Role="Fal_DicPerfil" Type="Self.Fal_DicPerfil" Multiplicity="1" />
+    <End Role="Fal_Dic_Usuario" Type="Self.Fal_Dic_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fal_DicPerfil">
+        <PropertyRef Name="per_IdPerfil_PK" />
+      </Principal>
+      <Dependent Role="Fal_Dic_Usuario">
+        <PropertyRef Name="usu_IdPerfil_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fal_Tra_CompaniaProducto_Fal_Dic_Usuario">
+    <End Role="Fal_Dic_Usuario" Type="Self.Fal_Dic_Usuario" Multiplicity="1" />
+    <End Role="Fal_Tra_CompaniaProducto" Type="Self.Fal_Tra_CompaniaProducto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fal_Dic_Usuario">
+        <PropertyRef Name="usu_IdUsuario_PK" />
+      </Principal>
+      <Dependent Role="Fal_Tra_CompaniaProducto">
+        <PropertyRef Name="cop_IdUsuario_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fal_Tra_Venta_Fal_Dic_Usuario">
+    <End Role="Fal_Dic_Usuario" Type="Self.Fal_Dic_Usuario" Multiplicity="1" />
+    <End Role="Fal_Tra_Venta" Type="Self.Fal_Tra_Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fal_Dic_Usuario">
+        <PropertyRef Name="usu_IdUsuario_PK" />
+      </Principal>
+      <Dependent Role="Fal_Tra_Venta">
+        <PropertyRef Name="ven_IdUsuario_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fal_Tra_Venta_Fal_Tra_CompaniaProducto">
+    <End Role="Fal_Tra_CompaniaProducto" Type="Self.Fal_Tra_CompaniaProducto" Multiplicity="1" />
+    <End Role="Fal_Tra_Venta" Type="Self.Fal_Tra_Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fal_Tra_CompaniaProducto">
+        <PropertyRef Name="cop_IdCompaniaProducto_PK" />
+      </Principal>
+      <Dependent Role="Fal_Tra_Venta">
+        <PropertyRef Name="ven_IdCompaniaProducto_FK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FalabellaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Fal_Dic_Cliente" EntityType="Self.Fal_Dic_Cliente" />
+    <EntitySet Name="Fal_Dic_Compania" EntityType="Self.Fal_Dic_Compania" />
+    <EntitySet Name="Fal_Dic_Producto" EntityType="Self.Fal_Dic_Producto" />
+    <EntitySet Name="Fal_Dic_TipoDocumento" EntityType="Self.Fal_Dic_TipoDocumento" />
+    <EntitySet Name="Fal_Dic_Usuario" EntityType="Self.Fal_Dic_Usuario" />
+    <EntitySet Name="Fal_DicPerfil" EntityType="Self.Fal_DicPerfil" />
+    <EntitySet Name="Fal_Tra_CompaniaProducto" EntityType="Self.Fal_Tra_CompaniaProducto" />
+    <EntitySet Name="Fal_Tra_Venta" EntityType="Self.Fal_Tra_Venta" />
+    <AssociationSet Name="FK_Fal_Dic_Cliente_Fal_Dic_TipoDocumento" Association="Self.FK_Fal_Dic_Cliente_Fal_Dic_TipoDocumento">
+      <End Role="Fal_Dic_TipoDocumento" EntitySet="Fal_Dic_TipoDocumento" />
+      <End Role="Fal_Dic_Cliente" EntitySet="Fal_Dic_Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fal_Dic_Cliente_Fal_Dic_Usuario" Association="Self.FK_Fal_Dic_Cliente_Fal_Dic_Usuario">
+      <End Role="Fal_Dic_Usuario" EntitySet="Fal_Dic_Usuario" />
+      <End Role="Fal_Dic_Cliente" EntitySet="Fal_Dic_Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fal_Tra_Venta_Fal_Dic_Cliente" Association="Self.FK_Fal_Tra_Venta_Fal_Dic_Cliente">
+      <End Role="Fal_Dic_Cliente" EntitySet="Fal_Dic_Cliente" />
+      <End Role="Fal_Tra_Venta" EntitySet="Fal_Tra_Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fal_Dic_Compania_Fal_Dic_Usuario" Association="Self.FK_Fal_Dic_Compania_Fal_Dic_Usuario">
+      <End Role="Fal_Dic_Usuario" EntitySet="Fal_Dic_Usuario" />
+      <End Role="Fal_Dic_Compania" EntitySet="Fal_Dic_Compania" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fal_Tra_CompaniaProducto_Fal_Dic_Compania" Association="Self.FK_Fal_Tra_CompaniaProducto_Fal_Dic_Compania">
+      <End Role="Fal_Dic_Compania" EntitySet="Fal_Dic_Compania" />
+      <End Role="Fal_Tra_CompaniaProducto" EntitySet="Fal_Tra_CompaniaProducto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fal_Dic_Producto_Fal_Dic_Usuario" Association="Self.FK_Fal_Dic_Producto_Fal_Dic_Usuario">
+      <End Role="Fal_Dic_Usuario" EntitySet="Fal_Dic_Usuario" />
+      <End Role="Fal_Dic_Producto" EntitySet="Fal_Dic_Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fal_Tra_CompaniaProducto_Fal_Dic_Producto" Association="Self.FK_Fal_Tra_CompaniaProducto_Fal_Dic_Producto">
+      <End Role="Fal_Dic_Producto" EntitySet="Fal_Dic_Producto" />
+      <End Role="Fal_Tra_CompaniaProducto" EntitySet="Fal_Tra_CompaniaProducto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fal_Dic_Usuario_Fal_DicPerfil" Association="Self.FK_Fal_Dic_Usuario_Fal_DicPerfil">
+      <End Role="Fal_DicPerfil" EntitySet="Fal_DicPerfil" />
+      <End Role="Fal_Dic_Usuario" EntitySet="Fal_Dic_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fal_Tra_CompaniaProducto_Fal_Dic_Usuario" Association="Self.FK_Fal_Tra_CompaniaProducto_Fal_Dic_Usuario">
+      <End Role="Fal_Dic_Usuario" EntitySet="Fal_Dic_Usuario" />
+      <End Role="Fal_Tra_CompaniaProducto" EntitySet="Fal_Tra_CompaniaProducto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fal_Tra_Venta_Fal_Dic_Usuario" Association="Self.FK_Fal_Tra_Venta_Fal_Dic_Usuario">
+      <End Role="Fal_Dic_Usuario" EntitySet="Fal_Dic_Usuario" />
+      <End Role="Fal_Tra_Venta" EntitySet="Fal_Tra_Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fal_Tra_Venta_Fal_Tra_CompaniaProducto" Association="Self.FK_Fal_Tra_Venta_Fal_Tra_CompaniaProducto">
+      <End Role="Fal_Tra_CompaniaProducto" EntitySet="Fal_Tra_CompaniaProducto" />
+      <End Role="Fal_Tra_Venta" EntitySet="Fal_Tra_Venta" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

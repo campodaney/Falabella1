@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Creado por: Campo Daney Ariza";
+}
+
+    <h2>@ViewBag.Title</h2>
+
+    <div class="jumbotron">
+        <p><a href="@Url.Action("Index", "Compania")" class="btn btn-primary btn-lg">Compañia</a></p>
+        <p><a href="@Url.Action("Index", "Producto")" class="btn btn-primary btn-lg">Productos</a></p>
+        <p><a href="@Url.Action("Index", "CompaniaProducto")" class="btn btn-primary btn-lg">Compañias-Productos</a></p>
+        <p><a href="@Url.Action("Index", "Cliente")" class="btn btn-primary btn-lg">Cliente</a></p>
+        <p><a href="@Url.Action("Index", "Venta")" class="btn btn-primary btn-lg">Venta</a></p>
+    </div>

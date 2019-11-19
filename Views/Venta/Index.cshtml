@@ -1,0 +1,44 @@
+﻿@model List<Falabella.Models.ViewModels.Venta.ListVentaViewModels>
+@{
+    ViewBag.Title = "Datos de Ventas";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row" style="text-align:right;padding:5px;">
+    <a href="/Venta/Nuevo" class="btn btn-primary">Nuevo</a>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>Cliente</th>
+                <th>Compañia</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Valor</th>
+                <th>Fecha/th>
+                <th></th>
+            </tr>
+            @foreach (var oElemento in Model)
+            {
+        <tr>
+            <td>@oElemento.cliente</td>
+            <td>@oElemento.compania</td>
+            <td>@oElemento.producto</td>
+            <td>@oElemento.cantidad</td>
+            <td>@oElemento.valor</td>
+            <td>@oElemento.fechaRegistro</td>
+            <td>
+                @*<a class="btn btn-default" href="~/Compania/Editar/@oElemento.idCompania">Editar</a>*@
+                <a class="btn btn-default" href="@Url.Action("Editar", "Venta", new { idVenta = @oElemento.idVenta })">Editar</a>
+                <a class="btn btn-danger" href="@Url.Action("Eliminar", "Venta", new { idVenta = @oElemento.idVenta })" onclick="return confirm('Esta seguro de eliminar la venta?');">Eliminar</a>
+            </td>
+        </tr>
+            }
+        </table>
+    </div>
+</div>
+

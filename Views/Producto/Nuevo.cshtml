@@ -1,0 +1,27 @@
+﻿@model Falabella.Models.ViewModels.Producto.ProductoViewModels
+@{
+    ViewBag.Title = "Nuevo";
+}
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Nuevo", "Producto", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                @Html.LabelFor(d => d.nombre)
+                @Html.TextBoxFor(d => d.nombre, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.nombre, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.estado)
+                @Html.CheckBoxFor(d => d.estado, true)
+            </div> 
+            <br>
+            <div class="row" style="text-align:right;">
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+    </div>
+}
+

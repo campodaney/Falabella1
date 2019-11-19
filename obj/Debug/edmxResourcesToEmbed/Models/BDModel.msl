@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FalabellaModelStoreContainer" CdmEntityContainer="FalabellaEntities">
+    <EntitySetMapping Name="Fal_Dic_Cliente">
+      <EntityTypeMapping TypeName="FalabellaModel.Fal_Dic_Cliente">
+        <MappingFragment StoreEntitySet="Fal_Dic_Cliente">
+          <ScalarProperty Name="cli_IdCliente_PK" ColumnName="cli_IdCliente_PK" />
+          <ScalarProperty Name="cli_IdUsuario_FK" ColumnName="cli_IdUsuario_FK" />
+          <ScalarProperty Name="cli_IdTipoDocumento_FK" ColumnName="cli_IdTipoDocumento_FK" />
+          <ScalarProperty Name="cli_Nombre" ColumnName="cli_Nombre" />
+          <ScalarProperty Name="cli_Documento" ColumnName="cli_Documento" />
+          <ScalarProperty Name="cli_FechaNacimiento" ColumnName="cli_FechaNacimiento" />
+          <ScalarProperty Name="cli_FechaRegistro" ColumnName="cli_FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fal_Dic_Compania">
+      <EntityTypeMapping TypeName="FalabellaModel.Fal_Dic_Compania">
+        <MappingFragment StoreEntitySet="Fal_Dic_Compania">
+          <ScalarProperty Name="com_IdCompania_PK" ColumnName="com_IdCompania_PK" />
+          <ScalarProperty Name="com_IdUsuario_FK" ColumnName="com_IdUsuario_FK" />
+          <ScalarProperty Name="com_Nombre" ColumnName="com_Nombre" />
+          <ScalarProperty Name="com_PersonaContacto" ColumnName="com_PersonaContacto" />
+          <ScalarProperty Name="com_TelefonoContacto" ColumnName="com_TelefonoContacto" />
+          <ScalarProperty Name="com_Nit" ColumnName="com_Nit" />
+          <ScalarProperty Name="com_FechaRegistro" ColumnName="com_FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fal_Dic_Producto">
+      <EntityTypeMapping TypeName="FalabellaModel.Fal_Dic_Producto">
+        <MappingFragment StoreEntitySet="Fal_Dic_Producto">
+          <ScalarProperty Name="prd_IdProducto_PK" ColumnName="prd_IdProducto_PK" />
+          <ScalarProperty Name="prd_IdUsuario_FK" ColumnName="prd_IdUsuario_FK" />
+          <ScalarProperty Name="prd_Nombre" ColumnName="prd_Nombre" />
+          <ScalarProperty Name="prd_EstadoProducto" ColumnName="prd_EstadoProducto" />
+          <ScalarProperty Name="prd_FechaRegistro" ColumnName="prd_FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fal_Dic_TipoDocumento">
+      <EntityTypeMapping TypeName="FalabellaModel.Fal_Dic_TipoDocumento">
+        <MappingFragment StoreEntitySet="Fal_Dic_TipoDocumento">
+          <ScalarProperty Name="tid_IdTipoDocumento_PK" ColumnName="tid_IdTipoDocumento_PK" />
+          <ScalarProperty Name="tid_Nombre" ColumnName="tid_Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fal_Dic_Usuario">
+      <EntityTypeMapping TypeName="FalabellaModel.Fal_Dic_Usuario">
+        <MappingFragment StoreEntitySet="Fal_Dic_Usuario">
+          <ScalarProperty Name="usu_IdUsuario_PK" ColumnName="usu_IdUsuario_PK" />
+          <ScalarProperty Name="usu_IdPerfil_FK" ColumnName="usu_IdPerfil_FK" />
+          <ScalarProperty Name="usu_Nombre" ColumnName="usu_Nombre" />
+          <ScalarProperty Name="usu_Usuario" ColumnName="usu_Usuario" />
+          <ScalarProperty Name="usu_FechaRegistro" ColumnName="usu_FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fal_DicPerfil">
+      <EntityTypeMapping TypeName="FalabellaModel.Fal_DicPerfil">
+        <MappingFragment StoreEntitySet="Fal_DicPerfil">
+          <ScalarProperty Name="per_IdPerfil_PK" ColumnName="per_IdPerfil_PK" />
+          <ScalarProperty Name="per_Nombre" ColumnName="per_Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fal_Tra_CompaniaProducto">
+      <EntityTypeMapping TypeName="FalabellaModel.Fal_Tra_CompaniaProducto">
+        <MappingFragment StoreEntitySet="Fal_Tra_CompaniaProducto">
+          <ScalarProperty Name="cop_IdCompaniaProducto_PK" ColumnName="cop_IdCompaniaProducto_PK" />
+          <ScalarProperty Name="cop_IdCompania_FK" ColumnName="cop_IdCompania_FK" />
+          <ScalarProperty Name="cop_IdProducto_FK" ColumnName="cop_IdProducto_FK" />
+          <ScalarProperty Name="cop_IdUsuario_FK" ColumnName="cop_IdUsuario_FK" />
+          <ScalarProperty Name="cop_Estado" ColumnName="cop_Estado" />
+          <ScalarProperty Name="cop_FechaRegistro" ColumnName="cop_FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fal_Tra_Venta">
+      <EntityTypeMapping TypeName="FalabellaModel.Fal_Tra_Venta">
+        <MappingFragment StoreEntitySet="Fal_Tra_Venta">
+          <ScalarProperty Name="ven_IdVenta_PK" ColumnName="ven_IdVenta_PK" />
+          <ScalarProperty Name="ven_IdCompaniaProducto_FK" ColumnName="ven_IdCompaniaProducto_FK" />
+          <ScalarProperty Name="ven_IdCliente_FK" ColumnName="ven_IdCliente_FK" />
+          <ScalarProperty Name="ven_IdUsuario_FK" ColumnName="ven_IdUsuario_FK" />
+          <ScalarProperty Name="ven_Cantidad" ColumnName="ven_Cantidad" />
+          <ScalarProperty Name="ven_Valor" ColumnName="ven_Valor" />
+          <ScalarProperty Name="ven_Observacion" ColumnName="ven_Observacion" />
+          <ScalarProperty Name="ven_FechaRegistro" ColumnName="ven_FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

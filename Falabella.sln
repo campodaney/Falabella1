@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Falabella", "Falabella.csproj", "{B8D5CA1F-000B-4174-B339-4B6E511B6AD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8D5CA1F-000B-4174-B339-4B6E511B6AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8D5CA1F-000B-4174-B339-4B6E511B6AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8D5CA1F-000B-4174-B339-4B6E511B6AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8D5CA1F-000B-4174-B339-4B6E511B6AD4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBBE7094-FA66-4814-9CDD-B74048FF812A}
+	EndGlobalSection
+EndGlobal
